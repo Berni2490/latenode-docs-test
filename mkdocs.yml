@@ -1,0 +1,52 @@
+site_name: Docs
+nav:
+  - Home: index.md
+  - Concepts:
+      - Overview: concepts/overview.md
+      - Scenarios: concepts/scenario.md
+      - Nodes: concepts/node.md
+      - Authorizations: concepts/auth.md
+  - Tutorials: 
+      - Getting started: basic_tutorials/getting_started.md
+      - Your first personal assistant: basic_tutorials/first-pa.md
+  - User Guide:
+      - How to create a scenario: user_guide/create_scenario.md
+  - Admin Guide: 
+      - Installation Guide: admin_guide/installation.md
+  - Node Reference:
+      - AI Agent: node_reference/ai_agent.md
+      - AI Data Storage: node_reference/data_storage.md
+  - Community:
+      - About community: community/about.md
+      - How to contribute: community/contribute.md
+  - About: about.md
+theme:
+    name: material
+    logo: ./assets/logo.png
+    features:
+      - announce.dismiss
+      - content.action.edit
+      - content.action.view
+      - content.code.annotate
+      - content.code.copy
+      # - content.code.select
+      # - content.footnote.tooltips
+      # - content.tabs.link
+      - content.tooltips
+      # - header.autohide
+      # - navigation.expand
+      - navigation.footer
+      - navigation.indexes
+      # - navigation.instant
+      # - navigation.instant.prefetch
+      # - navigation.instant.progress
+      # - navigation.prune
+      - navigation.sections
+      - navigation.tabs
+      # - navigation.tabs.sticky
+      - navigation.top
+      - navigation.tracking
+      - search.highlight
+      - search.share
+      - search.suggest
+      - toc.follow
