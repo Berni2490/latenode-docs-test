@@ -4,12 +4,14 @@ nav:
   - Home: index.md
   - Concepts:
       - Overview: concepts/overview.md
+      - Automations: concepts/automation.md
+      - AI Agents: concepts/ai_agents.md
       - Scenarios: concepts/scenario.md
       - Nodes: concepts/node.md
       - Authorizations: concepts/auth.md
   - Tutorials: 
       - Getting started: basic_tutorials/getting_started.md
-      - Your first personal assistant: basic_tutorials/first-pa.md
+      - Your first personal assistant: basic_tutorials/first_pa.md
   - User Guide:
       - How to create a scenario: user_guide/create_scenario.md
   - Admin Guide: 
@@ -51,3 +53,11 @@ theme:
       - search.share
       - search.suggest
       - toc.follow
+plugins:
+    - search
+    - autorefs
+markdown_extensions:
+    - attr_list
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
