@@ -10,11 +10,10 @@ It also assumes that you are using an online-version of Latenode. If you are usi
 
 The major steps are:
 
-1. [Add necessary nodes][#add-nodes]
-1. [Connect the tools][#connect-tools]
-1. [Configure the tools][#configure-tools]
-1. [Decide on the environment][#environment]
-1. [Fine-tune the agent][#finetune]
+1. [Add necessary nodes][add-nodes]
+1. [Configure the tools][configure-tools]
+1. [Decide on the environment][environment]
+1. [Fine-tune the agent][finetune]
 
 [](){ #add-nodes }
 ## Add necessary nodes
@@ -48,13 +47,21 @@ Now let's add tool nodes to manage:
 
 ![First Layout](../assets/first-layout.png){ loading=lazy }
 
-You can see that our tool nodes are marked with yellow triangles. It means that we should set up this nodes properly — connect them to real systems.
-
-[](){ #connect-tools }
-## Connect the tools
+You can see that our tool nodes are marked with yellow triangles. It means that we should configure this nodes properly.
 
 [](){ #configure-tools }
 ## Configure the tools
+
+Let's give our nodes OAuth tokens to make them connected with real systems — Todoist, Gmail and Calendar:
+
+1. Click a Todoist node and press **Sign in**. If you are not authorized in Todoist yet, system prompts you to sign in.
+1. Sing in if needed. You'll see that the **Connection** field contains an auth token.
+1. Press **Save** and close the window.
+1. Click another Todoist node and make sure that it has the same auth token appointed. You can manage your authorizations and rename them in **Authorizations** section in left menu.
+1. Repeat above steps for Gmail and Calendar nodes. It may require giving necessary permissions for Latenode. It is safe.
+
+Now we need to give our nodes descriptive names, clear descriptions and specify `fromAIAgent` operator for some fields. It provides the AI Agent with reliable information about these nodes.
+
 
 [](){ #environment }
 ## Decide on the environment
