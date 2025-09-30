@@ -16,9 +16,9 @@ _Short general overview of the tool: what kind of value it can provide to its us
 
 This documentation is organized into several sections:
 
-* **Home** contains this introduction as well as information about Latenode, its history, its licensing, authors, etc.
-* **Concepts** contains theoretical explanations of entities handled by Latenode: automations, scenarios, nodes, etc.
+* **Home** contains this introduction as well as information about Latenode, its history, its licensing, etc.
 * **Tutorials** contains all necessary information for new users on starting to make automations and AI agents. This is the best place to start if you're new!
+* **Concepts** contains theoretical explanations of the entities handled by Latenode, such as automations, scenarios, nodes, and more.
 * The **User Guide** contains instructions on specific tasks that you may face during the use. You can read it in any order as you need.
 * The **Admin Guide** contains sections intended for administrators of standalone version of Latenode.
 * The **Node Reference** documents the full list of available nodes of Latenode and their functional descriptions.

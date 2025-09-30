@@ -2,7 +2,8 @@
 
 In this step-by-step tutorial, you will create your first personal AI assistant with Latenode. By the end of the tutorial, you will have a simple yet complete AI assistant that can get natural-language tasks from the Telegram chat and helps you to handle your e-mails, tasks and meetings. Look at the final schema of the assistant at the image below.
 
-![assistant schema](../assets/logo.png){ loading=lazy }
+![assistant schema](../assets/final-schema.png){ align=right }
+
 
 The tutorial assumes that you already have an account and know some Latenode basics. If not, you should go through [Getting started](./getting_started.md) first.
 
@@ -52,7 +53,7 @@ You can see that our tool nodes are marked with yellow triangles. It means that 
 [](){ #configure-tools }
 ## Configure the tools
 
-Let's give our nodes OAuth tokens to make them connected with real systems — Todoist, Gmail and Calendar:
+Let's give OAuth tokens to our nodes to connect them with real systems — Todoist, Gmail and Calendar:
 
 1. Click a Todoist node and press **Sign in**. If you are not authorized in Todoist yet, system prompts you to sign in.
 1. Sing in if needed. You'll see that the **Connection** field contains an auth token.
@@ -61,6 +62,36 @@ Let's give our nodes OAuth tokens to make them connected with real systems — T
 1. Repeat above steps for Gmail and Calendar nodes. It may require giving necessary permissions for Latenode. It is safe.
 
 Now we need to give our nodes descriptive names, clear descriptions and specify `fromAIAgent` operator for some fields. It provides the AI Agent with reliable information about these nodes.
+
+1. Click **Perplexity** node and change its name on the top from **Untitled** to **web-search**. This is not a trivial step, as the AI agent uses the node name to understand its purpose.
+1. Tweak tool description like this: `Perplexity is an AI-powered search engine delivering accurate, concise answers and context`.
+1. Click the **User prompt** field, delete prefilled text, and choose the `fromAIAgent` operator in popup menu. Tweak the prompt like this: `Your new question prompt`.
+1. Press **Save**.
+
+![Config Perplexity](../assets/config-perplexity.png){ loading=lazy }
+
+Now let's set up our Google calendar nodes:
+
+1. Click **List events** node and rename it as **list_calendar_events**.
+1. In the **Calendar ID** field choose your Google calendar.
+1. In the **Tool description** field insert the following text: `Retrieves events from Google Calendar within the specified window`.
+1. Choose your time zone in the **Time Zone** field.
+1. Toggle **Show advanced settings** and find **Time Max** and **Time Min** fields. This parameters define the time window we mentioned in tool description. Click **Time Max** and choose the `fromAIAgent` operator in popup menu. The operator is filled in automatically, but let's tweak the prompt like this: `Must be an RFC3339 timestamp with mandatory time zone offset, for example: 2011-06-03T10:00:00+03:00`. Repeat this for the **Time Min** field.
+1. Press **Save**.
+
+![Config Calendar](../assets/config-calendar1.png){ loading=lazy }
+
+Configure the rest of nodes in a similar way. Corresponding fields are listed below.
+
+* Node **Create Event**:
+
+    * **Name**: `create_calendar_event`
+    * **Calendar ID**: your Google calendar.
+    * **Tool description**: `Creates a calendar event`
+    * **Start Date**: `Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00`
+    * **End Date**: `Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00`
+    * **Summary**: `Title of event` (by default).Replace default `Summary` with `Title`
+    * **Description**: `Description`
 
 
 [](){ #environment }
