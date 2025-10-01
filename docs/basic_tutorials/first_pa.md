@@ -13,7 +13,7 @@ The major steps are:
 
 1. [Add necessary nodes][add-nodes]
 1. [Configure the tools][configure-tools]
-1. [Decide on the environment][environment]
+1. [Setup the environment][environment]
 1. [Fine-tune the agent][finetune]
 
 [](){ #add-nodes }
@@ -76,26 +76,58 @@ Now let's set up our Google calendar nodes:
 1. In the **Calendar ID** field choose your Google calendar.
 1. In the **Tool description** field insert the following text: `Retrieves events from Google Calendar within the specified window`.
 1. Choose your time zone in the **Time Zone** field.
-1. Toggle **Show advanced settings** and find **Time Max** and **Time Min** fields. This parameters define the time window we mentioned in tool description. Click **Time Max** and choose the `fromAIAgent` operator in popup menu. The operator is filled in automatically, but let's tweak the prompt like this: `Must be an RFC3339 timestamp with mandatory time zone offset, for example: 2011-06-03T10:00:00+03:00`. Repeat this for the **Time Min** field.
+1. Toggle **Show advanced settings** and find **Time Max** and **Time Min** fields. This parameters define the time window we mentioned in tool description. Click **Time Max** and choose the `fromAIAgent` operator in popup menu. The operator is filled in automatically, but let's tweak the prompt like this: `Must be an RFC3339 timestamp with mandatory time zone offset, for example: 2011-06-03T10:00:00+03:00`. Hereinafter `+03:00` is your UTC time zone, replace it accordingly. Repeat this for the **Time Min** field.
 1. Press **Save**.
 
 ![Config Calendar](../assets/config-calendar1.png){ loading=lazy }
 
 Configure the rest of nodes in a similar way. Corresponding fields are listed below.
 
-* Node **Create Event**:
+* **Create Event**:
 
-    * **Name**: `create_calendar_event`
-    * **Calendar ID**: your Google calendar.
-    * **Tool description**: `Creates a calendar event`
-    * **Start Date**: `Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00`
-    * **End Date**: `Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00`
-    * **Summary**: `Title of event` (by default).Replace default `Summary` with `Title`
-    * **Description**: `Description`
+    * **Name** — `create_calendar_event`
+    * **Calendar ID** — your Google calendar
+    * **Tool description** — `Creates a calendar event`
+    * **Start Date** — `Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00`
+    * **End Date** — `Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00`
+    * **Summary** — `Title of event` (by default).Replace default `Summary` with `Title`
+    * **Description** — `Description`
 
+* **List Uncompleted Tasks**:
+
+    * **Name** — `list_tasks`
+    * **Tool description** — `Fetches all uncompleted tasks from Todoist`
+    * **Project ID** — a project ID from the dropdown list
+
+* **Create Task**:
+
+    * **Name** — `create_task`
+    * **Tool description** — `Creates task in task tracker`
+    * **Content** — default `fromAIAgent` prompt
+    * **Priority** — `fromAIAgent` operator with prompt `Task priority from 1 (normal) to 4 (urgent)`
+    * **Due Datetime** — `fromAIAgent` operator with prompt `Specific date and time in RFC3339 format in UTC, for example: "2024-09-26T11:30:00+03:00". Leave blank if no date is required.`
+
+* **Create Draft**:
+
+    * **Name** — `create_email_draft`
+    * **Tool description** — `Creates draft (creates an email but not send)` (default)
+    * **Subject** — default `fromAIAgent` prompt
+    * **Email Body** — tweak the default prompt like this: `Include an email body in plain text`
+    * **To** — default `fromAIAgent`
+    * **From name** — your name
+
+* **Find Email**:
+
+    * **Name** — `list_email_unreads`
+    * **Tool description** — `Finds an email message`
+    * **Label ID** — `UNREAD`
+
+The tools are configured and now we should setup a communication environment to speak with our AI Agent.
 
 [](){ #environment }
-## Decide on the environment
+## Setup the environment
+
+
 
 [](){ #finetune }
 ## Fine-tune the agent
