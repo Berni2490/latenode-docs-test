@@ -127,7 +127,43 @@ The tools are configured and now we should setup a communication environment to 
 [](){ #environment }
 ## Setup the environment
 
+!!! note
+    In this tutorial we will use a Telegram bot. But generally, instead of it you can use Mailhook or any similar node.
 
+Let's configure a Telegram bot to communicate with our assistant:
+
+1. Log in to Telegram. If you don't have one, you can install a desktop version from [the official site](https://desktop.telegram.org/?setln=en) and sign up.
+1. Search for the `@botfather` bot in the search field and go to the dialogue.
+    ![botfather](../assets/botfather.png){ loading=lazy }
+1. Press **Create a new bot** in the interface. 
+1. Setup the bot name as `Stanley` and bot username as `stanely_assistant_<you own nickname>`. Press **Create Bot**.
+1. Copy the API token of the bot to the clipboard.
+1. Go to Latenode, choose **Authorizations** from the left panel and create a new authorization for **Telegram bot**. Paste the API token here and click **Authorize**.
+
+Now we need to add Telegram nodes to our scenario:
+
+1. Delete the default **Trigger on Run once** node from the scenario.
+1. Press **Add node**, find **Telegram** app and choose **New Updates (Instant)** node. Connect it to the **AI Agent** node in place of deleted trigger.
+1. Click the added node and choose the authorization we've added earlier.
+1. In the **Allowed updates** field choose `message`, so the node will trigger on every message.
+1. Press **Add node**, find **Telegram** app and choose the **Send Text Message or Reply** node. Connect the **AI Agent** node to it, like in picture below. It will receive replies from our agent.
+1. Add authorization to this node as above and fill the **Chat ID** and **Text** fields with `1` as placeholders.
+
+![telegram-added](../assets/telegram-added.png){ loading=lazy }
+
+Set up the handling of messages that the Telegram bot sends:
+
+1. Click the **New Updates (Instant)** node and press the **Run** button. It triggers a mock message. The JSON-structure of the message appears in a popup window. You may investigate it shortly. We are interested in `chat.id` and `text` fields.
+1. Click **Add node** and find the **SetVariables** node. Place and connect it between the **New Updates (Instant)** and the **AI Agent** node, like in picture below. The node will store necessary JSON variables of the message.
+1. Click the **SetVariables** node, rename it to `Input` and add two keys: `message` and `chat_id`. 
+1. For the `message` key click the **Value** field, choose Telegram in the popup menu, find the `text` field and click an arrow icon to import the path as a value. 
+1. Repeat for the `chat_id` key but with the `chat.id` field instead.
+
+    ![setting-values](../assets/setting-values.png){ loading=lazy }
+
+1. Go back to the **Send Text Message or Reply** node and set `_.chat_id` variable for the **Chat ID** node.
+
+We just have finished setting up the configuration of the Telegram bot and the related nodes. Now we should configure the **AI Agent** node itself.
 
 [](){ #finetune }
 ## Fine-tune the agent
