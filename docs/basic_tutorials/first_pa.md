@@ -13,8 +13,8 @@ The major steps are:
 
 1. [Add necessary nodes][add-nodes]
 1. [Configure the tools][configure-tools]
-1. [Setup the environment][environment]
-1. [Fine-tune the agent][finetune]
+1. [Set up the environment][environment]
+1. [Configure the agent][agent-config]
 
 [](){ #add-nodes }
 ## Add necessary nodes
@@ -122,10 +122,10 @@ Configure the rest of nodes in a similar way. Corresponding fields are listed be
     * **Tool description** — `Finds an email message`
     * **Label ID** — `UNREAD`
 
-The tools are configured and now we should setup a communication environment to speak with our AI Agent.
+The tools are configured and now we should set up a communication environment to speak with our AI Agent.
 
 [](){ #environment }
-## Setup the environment
+## Set up the environment
 
 !!! note
     In this tutorial we will use a Telegram bot. But generally, instead of it you can use Mailhook or any similar node.
@@ -136,7 +136,7 @@ Let's configure a Telegram bot to communicate with our assistant:
 1. Search for the `@botfather` bot in the search field and go to the dialogue.
     ![botfather](../assets/botfather.png){ loading=lazy }
 1. Press **Create a new bot** in the interface. 
-1. Setup the bot name as `Stanley` and bot username as `stanely_assistant_<you own nickname>`. Press **Create Bot**.
+1. Set up the bot name as `Stanley` and bot username as `stanely_assistant_<you own nickname>`. Press **Create Bot**.
 1. Copy the API token of the bot to the clipboard.
 1. Go to Latenode, choose **Authorizations** from the left panel and create a new authorization for **Telegram bot**. Paste the API token here and click **Authorize**.
 
@@ -165,6 +165,62 @@ Set up the handling of messages that the Telegram bot sends:
 
 We just have finished setting up the configuration of the Telegram bot and the related nodes. Now we should configure the **AI Agent** node itself.
 
-[](){ #finetune }
-## Fine-tune the agent
+[](){ #agent-config }
+## Configure the agent
+
+At first, set up the agent's memory:
+
+1. Click the **AI Agent** node.
+1. Click the **Session ID** field. In the appeared menu go to **Tools** → **Variables** tab and choose `chat_id` variable. Now our agent gets the context from the Telegram chat that we configured before.
+1. (Optional) Toggle **Show advanced settings** and look at the **Context window length** field. It defines how many previous messages the agent remembers. The default value is `25` and it is fine for this tutorial, let's keep it. You can increase this value in the future if necessary for your needs. But keep in mind that higher values increase a probability of hallucinations.
+
+![setting-memory](../assets/setting-memory.png){ loading=lazy }
+
+Now let's provide our agent with a system prompt. This is the most important part of any AI assistant, as it defines it's general behavior. For this tutorial we will use a predefined prompt, but generally we recommend to see our [Prompting Guide](../user_guide/prompting_guide.md).
+
+1. Familiarize yourself with the prompt below and copy it to the clipboard:
+
+    ```md
+    # Personality
+    You are **Stanley**, a pragmatic, friendly personal assistant. You keep <Username> organized and ask the essential questions.
+
+    # Environment
+    You run in **Telegram** chat. You orchestrate tools (Google Calendar, Todoist, Gmail, AI Web Search/Perplexity) but cannot see <Username>'s screen. Assume local time is <your timezone, e.g., **UTC+03:00 (Asia/Nicosia)**>.
+
+    # Tone
+    Be concise and direct: 1-3 short sentences, bullets when useful. In replies, use **conversational dates** (e.g., "today at 19:00", "on Friday afternoon").
+
+    # Goal
+    Help <Username> with time management, task tracking, and project coordination using the tools available to you (calendar, task tracker, email, wes search).
+
+    # Guardrails
+    In **tool calls** always pass timestamps in **RFC3339 format + <your UTC time difference, e.g., 03:00>**. In chat keep conversational times.
+
+    # Tools
+    - `list_calendar_events` — get calendar events for a time range.
+        - Use to present upcoming events, check conflicts, or fetch details needed for scheduling.
+        - Use before proposing a plan for a day/week or when <Username> asks "When am I free/busy?"
+    - `create_calendar_event` — create a calendar event.
+        - Use after confirming title, date/time, duration, and attendees. Include a Meet link if available.
+    - `list_tasks` — fetch incomplete Todoist tasks.
+        - Use to create a prioritized plan; sort by due date then importance; call out overdue items.
+    - `create_task` — create a Todoist task.
+        - Use to capture action items from chat or email; include due date/time and labels if provided.
+    - `list_email_inbox` — get inbox email messages.
+        - Use to triage unread mail and extract actionable items (meetings, invoices, requests).
+    - `create_email_draft` — create email drafts.
+        - Use to write replies with clear nest steps (e.g., propose 2-3 time slots, bullet answers).
+    - `web_search` — perplexity AI search.
+        - Use for quick research, examples, or facts to enrich replies or proposals (keep it brief: 2-3 bullets).
+
+    # Workflow
+
+
+
+    # Current time
+    `{{now}}` (in UTC)
+    ```
+
+1. Paste it to the **System prompt field** and replace all placeholders with you Telegram Username and timezone, accordingly.
+
 

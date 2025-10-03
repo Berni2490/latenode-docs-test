@@ -14,6 +14,7 @@ nav:
         - Authorizations: concepts/auth.md
     - User Guide:
         - How to create a scenario: user_guide/create_scenario.md
+        - How to create an efficient prompt: user_guide/prompting_guide.md
     - Admin Guide: 
         - Installation Guide: admin_guide/installation.md
     - Node Reference:
@@ -61,3 +62,12 @@ markdown_extensions:
     - admonition
     - pymdownx.details
     - pymdownx.superfences
+    - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+extra_css:
+      - ./custom.css
