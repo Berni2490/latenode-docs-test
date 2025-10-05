@@ -15,6 +15,7 @@ The major steps are:
 1. [Configure the tools][configure-tools]
 1. [Set up the environment][environment]
 1. [Configure the agent][agent-config]
+1. [Test the result][test-result]
 
 [](){ #add-nodes }
 ## Add necessary nodes
