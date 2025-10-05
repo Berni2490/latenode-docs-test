@@ -4,7 +4,6 @@ In this step-by-step tutorial, you will create your first personal AI assistant 
 
 ![assistant schema](../assets/final-schema.png){ align=right }
 
-
 The tutorial assumes that you already have an account and know some Latenode basics. If not, you should go through [Getting started](./getting_started.md) first.
 
 It also assumes that you are using an online-version of Latenode. If you are using a standalone version, some interfaces, links and details may vary.
@@ -42,7 +41,7 @@ Now let's add tool nodes to manage:
 
     * **List Events** and **Create Event** nodes from **Google Calendar...** app.
     * **List uncompleted tasks** and **Create Task** nodes from **Todoist...** app.
-    * **Create Chat Completion** from **AI: Perplexity...** app. We will explain this point later.
+    * **Create Chat Completion** from **AI: Perplexity...** app. The assistant will use it to search for an information in the internet.
 
 1. Connect the **AI Agent** node with every tool node. You should get a layout like in the image below.
 
@@ -168,15 +167,18 @@ We just have finished setting up the configuration of the Telegram bot and the r
 [](){ #agent-config }
 ## Configure the agent
 
-At first, set up the agent's memory:
+### Set up the memory
 
 1. Click the **AI Agent** node.
-1. Click the **Session ID** field. In the appeared menu go to **Tools** → **Variables** tab and choose `chat_id` variable. Now our agent gets the context from the Telegram chat that we configured before.
+1. Click the **Session ID** field. In the appeared menu go to **Tools** → **Variables** tab and choose `chat_id` variable. 
+1. Click the **User Prompt** field. In the appeared menu go to **Tools** → **Variables** tab and choose `message` variable. Now our agent gets the context from the Telegram chat that we configured before.
 1. (Optional) Toggle **Show advanced settings** and look at the **Context window length** field. It defines how many previous messages the agent remembers. The default value is `25` and it is fine for this tutorial, let's keep it. You can increase this value in the future if necessary for your needs. But keep in mind that higher values increase a probability of hallucinations.
 
 ![setting-memory](../assets/setting-memory.png){ loading=lazy }
 
-Now let's provide our agent with a system prompt. This is the most important part of any AI assistant, as it defines it's general behavior. For this tutorial we will use a predefined prompt, but generally we recommend to see our [Prompting Guide](../user_guide/prompting_guide.md).
+### Prepare a system prompt
+
+Now let's provide our agent with a system prompt. This is the most important part of any AI assistant, as it defines it's general behavior. For this tutorial we will use a predefined prompt, but generally we recommend checking out our [Prompting Guide](../user_guide/prompting_guide.md).
 
 1. Familiarize yourself with the prompt below and copy it to the clipboard:
 
@@ -214,13 +216,61 @@ Now let's provide our agent with a system prompt. This is the most important par
         - Use for quick research, examples, or facts to enrich replies or proposals (keep it brief: 2-3 bullets).
 
     # Workflow
+    - **Stay current:** Before acting, ensure you have the required context from `list_calendar_events`, `retrieve_calendar_events`, `list_tasks`, and (if relevant) `list_email_inbox`. If you already checked it within the last **3 hours**, you are up to date.
+    - **Email triage:**
+        - If an email mentions *demo/meeting/call* → check availability with `retrieve_calendar_events`, propose 2-3 slots, then `create_calendar_event` + `create_email_draft`.
+        - If an email mentions *invoice/payment/deadline* → `create_task` with due date and label; draft a brief acknowledgment if needed.
+    - **Planing:** When <Username> asks to plan a day/week, pull `retrieve_calendar_events` and `list_tasks`, propose a realistic schedule, then create events/tasks after a confirmation.
+    - **Review:** On request, produce a concise daily/weekly review (completed vs. pending, upcoming deadlines, meetings to confirm).
 
-
+    # User context
+    - Name: **<Username>**; lives in **<City> (<UTC Timezone>)**.
+    - Role: <Your role and duties>
+    - Typical sleep: **<Your do-not-disturb time window>** (avoid scheduling here unless asked).
+    - Preferences: default meeting length **30 min**.
 
     # Current time
     `{{now}}` (in UTC)
     ```
 
-1. Paste it to the **System prompt field** and replace all placeholders with you Telegram Username and timezone, accordingly.
+1. Paste it to the **System message** field and replace all the placeholders (`<>`) with you Telegram Username, timezone, city, etc., accordingly. You can also edit and tweak the prompt as you like.
+1. In the **Model** field choose an LLM to handle your requests. For this assistant we recommend choosing the `OpenAI: GPT-5 mini`, as it is relatively cheap and would be enough for our tasks.
 
+### Connect the output
 
+We need to connect the agent's response to the Telegram node **Send Text Message or Reply**.
+
+1. Click the **AI Agent** node and press **Run**. It returns a JSON structure of the agent's response.
+1. Go to the **Send Text Message or Reply** node and delete placeholder `1` from the **Text** field.
+1. Click the **Text** field and in the right menu choose **Stanley** then press an arrow icon for the `text` key in JSON structure. The key is now imported to the field, as in image below.
+1. Click **Save**.
+
+![setting-output](../assets/setting-output.png){ loading=lazy }
+
+All the configurations are done and you can check how your first assistant works.
+
+[](){ #check-result }
+## Check the result
+
+Let's have a look at a scenario when the assistant may be helpful. Below it is just an example, you can vary it as you'd like. You can also prepare some mock urgent Emails and tasks if you'd like to test that the assistant handles it right.
+
+1. Go to the Telegram dialogue with the bot. Ask him to check if there are anything urgent in your Email box.
+1. Ask him to draft the reply for an Email and appoint a meeting.
+1. Check the result in your Email, Todoist and Google Calendar.
+
+See an example in the pictures below.
+
+![finish-1](../assets/finish-1.png){ loading=lazy }
+![finish-2](../assets/finish-2.png){ loading=lazy }
+
+Instead of manual handling this three tools now you can manage them all by a single Telegram bot.
+
+[](){ #next }
+## What's next
+
+Remember your own daily routines and think how to make an assistant to automate them. Links below might help you.
+
+* To learn more about the Latenode Nodes and and their feature, see the [Node](../concepts/node.md) concept as well as [Node Reference](../node_reference/ai_agent.md).
+* Check out [How to create a scenario](../user_guide/create_scenario.md) and [How to create an efficient prompt](../user_guide/prompting_guide.md) guides.
+
+Feel free to visit our Community Forum and ask an advice.
