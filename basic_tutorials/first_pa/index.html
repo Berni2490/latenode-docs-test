@@ -1,0 +1,1915 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mydomain.org/mysite/basic_tutorials/first_pa/">
+      
+      
+        <link rel="prev" href="../getting_started/">
+      
+      
+        <link rel="next" href="../../concepts/overview/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Your first personal assistant - Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#your-first-personal-assistant" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Docs" class="md-header__button md-logo" aria-label="Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Your first personal assistant
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../getting_started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user_guide/create_scenario/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../admin_guide/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Admin Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../node_reference/ai_agent/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Node Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../community/about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Community
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Docs" class="md-nav__button md-logo" aria-label="Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Your first personal assistant
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Your first personal assistant
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-necessary-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add necessary nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add necessary nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a scenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-tool-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add tool nodes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorize-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorize Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-in-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fill in fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up the environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a bot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-telegram-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Telegram nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-variable-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a variable handler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-a-system-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare a system prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect the output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/automation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/ai_agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/scenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/node/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nodes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorizations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/create_scenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a scenario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/prompting_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create an efficient prompt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Admin Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Admin Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin_guide/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Node Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Node Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node_reference/ai_agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node_reference/data_storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Data Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Community
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About community
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to contribute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-necessary-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add necessary nodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add necessary nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a scenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-tool-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add tool nodes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorize-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorize Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill-in-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fill in fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up the environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a bot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-telegram-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Telegram nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-variable-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a variable handler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the agent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-a-system-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare a system prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect the output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="your-first-personal-assistant">Your first personal assistant</h1>
+<p>In this step-by-step tutorial, you'll create your first personal AI assistant using Latenode. By the end of the tutorial, you'll have a simple yet complete AI assistant that can get natural-language tasks from the Telegram chat and helps you to handle your e-mails, tasks and meetings. See the final schema of the assistant in the image below.</p>
+<p><img align="right" alt="assistant schema" src="../../assets/final-schema.png" /></p>
+<p>The tutorial assumes that:</p>
+<ul>
+<li>You already have an account and know some Latenode basics. If not, you should go through <a href="../getting_started/">Getting started</a> first.</li>
+<li>You are using an online-version of Latenode. If you are using a standalone version, some interfaces, links and details may vary.</li>
+</ul>
+<p>The major steps are:</p>
+<ol>
+<li><a class="autorefs autorefs-internal" href="#add-necessary-nodes">Add necessary nodes</a></li>
+<li><a class="autorefs autorefs-internal" href="#configure-the-tools">Configure the tools</a></li>
+<li><a class="autorefs autorefs-internal" href="#set-up-the-environment">Set up the environment</a></li>
+<li><a class="autorefs autorefs-internal" href="#configure-the-agent">Configure the agent</a></li>
+<li><a class="autorefs autorefs-internal" href="#test-the-result">Test the result</a></li>
+</ol>
+<p><a href="" id="add-nodes"></a></p>
+<h2 id="add-necessary-nodes">Add necessary nodes</h2>
+<p>In this short first part, we'll fill a new scenario with necessary nodes.</p>
+<h3 id="create-a-scenario">Create a scenario</h3>
+<p>Let's create a new scenario and add the first node:</p>
+<ol>
+<li>Log in to Latenode and go to <a href="https://app.latenode.com/scenarios">scenarios page</a>.</li>
+<li>Press <strong>Create a new scenario</strong> and optionally set the scenario name at the left corner of the page. For example, let it be <code>My First AI Assistant</code>.</li>
+<li>
+<p>Press <strong>Add a Node to Begin</strong> and choose <strong>AI Agent...</strong> from the list of available nodes. Then choose common <strong>AI Agent</strong> node.</p>
+<p><img align="right" alt="AI Agent node" src="../../assets/add-node.png" /></p>
+<p>The node appears on the board and the node settings window pops up. Press the node name <code>UNTITLED</code> and rename to <code>Stanley</code>. For now, leave other settings at their default values and close the window. We'll back here later.</p>
+</li>
+</ol>
+<p>This AI Agent node is the brain of our assistant. It will manage the other nodes.</p>
+<p>We want our assistant to be able to read mails and create drafts, check and create events in Google Calendar, list and create tasks in a task tracker. Now, let's add nodes representing these tools.</p>
+<h3 id="add-tool-nodes">Add tool nodes</h3>
+<ol>
+<li>Press <strong>Add node</strong> in the bottom menu. Find and click <strong>Gmail...</strong> app. Use the search field to find it easy.</li>
+<li>Choose the <strong>Create Draft</strong> node. </li>
+<li>Repeat the process for the <strong>Find Email</strong> node.</li>
+<li>
+<p>Add the following nodes in a similar way:</p>
+<ul>
+<li><strong>List Events</strong> and <strong>Create Event</strong> nodes from the <strong>Google Calendar...</strong> app.</li>
+<li><strong>List uncompleted tasks</strong> and <strong>Create Task</strong> nodes from the <strong>Todoist...</strong> app.</li>
+<li><strong>Create Chat Completion</strong> from the <strong>AI: Perplexity...</strong> app. The assistant will use it to search for information on the internet.</li>
+</ul>
+</li>
+<li>
+<p>Connect the <strong>AI Agent</strong> node with every tool node. You should get a layout like in the image below.</p>
+</li>
+</ol>
+<p><img alt="First Layout" loading="lazy" src="../../assets/first-layout.png" /></p>
+<p>You can see that our tool nodes are marked with yellow triangles. It means that we should configure this nodes properly.</p>
+<p><a href="" id="configure-tools"></a></p>
+<h2 id="configure-the-tools">Configure the tools</h2>
+<h3 id="authorize-nodes">Authorize Nodes</h3>
+<p>Let's give authorization tokens to our nodes to connect them with real systems — Todoist, Gmail, and Calendar:</p>
+<ol>
+<li>Click a Todoist node and press <strong>Sign in</strong>. If you are not authorized in Todoist yet, system prompts you to sign in.</li>
+<li>Sing in if needed. You'll see that the <strong>Connection</strong> field contains an auth token.</li>
+<li>Press <strong>Save</strong> and close the window.</li>
+<li>Click another Todoist node and make sure that it has the same auth token appointed. You can manage your authorizations and rename them in <strong>Authorizations</strong> section in left menu.</li>
+<li>Repeat above steps for Gmail and Calendar nodes. You may need to grant the necessary permissions to Latenode. This is safe.</li>
+</ol>
+<h3 id="fill-in-fields">Fill in fields</h3>
+<p>Now we need to give our nodes descriptive names, clear descriptions and specify <code>fromAIAgent</code> operator for some fields. It provides the AI Agent with reliable information about these nodes.</p>
+<ol>
+<li>Click <strong>Perplexity</strong> node and change its name on the top from <strong>Untitled</strong> to <strong>web-search</strong>. This is not a trivial step, as the AI agent uses the node name to understand its purpose.</li>
+<li>Tweak tool description like this: <code>Perplexity is an AI-powered search engine delivering accurate, concise answers and context</code>.</li>
+<li>Click the <strong>User prompt</strong> field, delete prefilled text, and choose the <code>fromAIAgent</code> operator in popup menu. Tweak the prompt like this: <code>Your new question prompt</code>.</li>
+<li>Press <strong>Save</strong>.</li>
+</ol>
+<p><img alt="Config Perplexity" loading="lazy" src="../../assets/config-perplexity.png" /></p>
+<p>Now let's set up our Google calendar nodes:</p>
+<ol>
+<li>Click <strong>List events</strong> node and rename it as <strong>list_calendar_events</strong>.</li>
+<li>In the <strong>Calendar ID</strong> field choose your Google calendar.</li>
+<li>In the <strong>Tool description</strong> field insert the following text: <code>Retrieves events from Google Calendar within the specified window</code>.</li>
+<li>Choose your time zone in the <strong>Time Zone</strong> field.</li>
+<li>Toggle <strong>Show advanced settings</strong> and find <strong>Time Max</strong> and <strong>Time Min</strong> fields. This parameters define the time window we mentioned in tool description. Click <strong>Time Max</strong> and choose the <code>fromAIAgent</code> operator in popup menu. The operator is filled in automatically, but let's tweak the prompt like this: <code>Must be an RFC3339 timestamp with mandatory time zone offset, for example: 2011-06-03T10:00:00+03:00</code>. Hereinafter <code>+03:00</code> is your UTC time zone, replace it accordingly. Repeat this for the <strong>Time Min</strong> field.</li>
+<li>Press <strong>Save</strong>.</li>
+</ol>
+<p><img alt="Config Calendar" loading="lazy" src="../../assets/config-calendar1.png" /></p>
+<p>Configure the rest of nodes in a similar way. Corresponding fields are listed below.</p>
+<ul>
+<li>
+<p><strong>Create Event</strong>:</p>
+<ul>
+<li><strong>Name</strong> — <code>create_calendar_event</code></li>
+<li><strong>Calendar ID</strong> — your Google calendar</li>
+<li><strong>Tool description</strong> — <code>Creates a calendar event</code></li>
+<li><strong>Start Date</strong> — <code>Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00</code></li>
+<li><strong>End Date</strong> — <code>Format according to RFC3339: yyyy-mm-dd-Thh:mm:ss+03:00</code></li>
+<li><strong>Summary</strong> — <code>Title of event</code> (by default).Replace default <code>Summary</code> with <code>Title</code></li>
+<li><strong>Description</strong> — <code>Description</code></li>
+</ul>
+</li>
+<li>
+<p><strong>List Uncompleted Tasks</strong>:</p>
+<ul>
+<li><strong>Name</strong> — <code>list_tasks</code></li>
+<li><strong>Tool description</strong> — <code>Fetches all uncompleted tasks from Todoist</code></li>
+<li><strong>Project ID</strong> — a project ID from the dropdown list</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Task</strong>:</p>
+<ul>
+<li><strong>Name</strong> — <code>create_task</code></li>
+<li><strong>Tool description</strong> — <code>Creates task in task tracker</code></li>
+<li><strong>Content</strong> — default <code>fromAIAgent</code> prompt</li>
+<li><strong>Priority</strong> — <code>fromAIAgent</code> operator with prompt <code>Task priority from 1 (normal) to 4 (urgent)</code></li>
+<li><strong>Due Datetime</strong> — <code>fromAIAgent</code> operator with prompt <code>Specific date and time in RFC3339 format in UTC, for example: "2024-09-26T11:30:00+03:00". Leave blank if no date is required.</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Create Draft</strong>:</p>
+<ul>
+<li><strong>Name</strong> — <code>create_email_draft</code></li>
+<li><strong>Tool description</strong> — <code>Creates draft (creates an email but not send)</code> (default)</li>
+<li><strong>Subject</strong> — default <code>fromAIAgent</code> prompt</li>
+<li><strong>Email Body</strong> — tweak the default prompt like this: <code>Include an email body in plain text</code></li>
+<li><strong>To</strong> — default <code>fromAIAgent</code></li>
+<li><strong>From name</strong> — your name</li>
+</ul>
+</li>
+<li>
+<p><strong>Find Email</strong>:</p>
+<ul>
+<li><strong>Name</strong> — <code>list_email_unreads</code></li>
+<li><strong>Tool description</strong> — <code>Finds an email message</code></li>
+<li><strong>Label ID</strong> — <code>UNREAD</code></li>
+</ul>
+</li>
+</ul>
+<p>The tools are configured and now we should set up a communication environment to speak with our AI Agent.</p>
+<p><a href="" id="environment"></a></p>
+<h2 id="set-up-the-environment">Set up the environment</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this tutorial we will use a Telegram bot. But generally, instead of it you can use Mailhook or any similar tool.</p>
+</div>
+<h3 id="create-a-bot">Create a bot</h3>
+<p>Let's configure a Telegram bot to communicate with our assistant:</p>
+<ol>
+<li>Log in to Telegram. If you don't have one, you can install a desktop version from <a href="https://desktop.telegram.org/?setln=en">the official site</a> and sign up.</li>
+<li>Search for the <code>@botfather</code> bot in the search field and go to the dialogue.
+    <img alt="botfather" loading="lazy" src="../../assets/botfather.png" /></li>
+<li>Press <strong>Create a new bot</strong> in the interface. </li>
+<li>Set up the bot name as <code>Stanley</code> and bot username as <code>stanely_assistant_&lt;you own nickname&gt;</code>. Press <strong>Create Bot</strong>.</li>
+<li>Copy the API token of the bot to the clipboard.</li>
+<li>Go to Latenode, choose <strong>Authorizations</strong> from the left panel and create a new authorization for <strong>Telegram bot</strong>. Paste the API token here and click <strong>Authorize</strong>.</li>
+</ol>
+<h3 id="add-telegram-nodes">Add Telegram nodes</h3>
+<p>Now we need to add Telegram nodes to our scenario:</p>
+<ol>
+<li>Delete the default <strong>Trigger on Run once</strong> node from the scenario.</li>
+<li>Press <strong>Add node</strong>, find <strong>Telegram</strong> app and choose <strong>New Updates (Instant)</strong> node. Connect it to the <strong>AI Agent</strong> node in place of deleted trigger.</li>
+<li>Click the added node and choose the authorization we've added earlier.</li>
+<li>In the <strong>Allowed updates</strong> field choose <code>message</code>, so the node will trigger on every message.</li>
+<li>Press <strong>Add node</strong>, find <strong>Telegram</strong> app and choose the <strong>Send Text Message or Reply</strong> node. Connect the <strong>AI Agent</strong> node to it, like in image below. It will receive replies from our agent.</li>
+<li>Add authorization to this node as above and fill the <strong>Chat ID</strong> and <strong>Text</strong> fields with <code>1</code> as placeholders.</li>
+</ol>
+<p><img alt="telegram-added" loading="lazy" src="../../assets/telegram-added.png" /></p>
+<h3 id="add-a-variable-handler">Add a variable handler</h3>
+<p>Set up how to handle messages sent by the Telegram bot:</p>
+<ol>
+<li>Click the <strong>New Updates (Instant)</strong> node and press the <strong>Run</strong> button. It triggers a mock message. The JSON-structure of the message appears in a popup window. You may investigate it shortly. We are interested in <code>chat.id</code> and <code>text</code> fields.</li>
+<li>Click <strong>Add node</strong> and find the <strong>SetVariables</strong> node. Place and connect it between the <strong>New Updates (Instant)</strong> and the <strong>AI Agent</strong> node, like in image below. The node will store necessary JSON variables of the message.</li>
+<li>Click the <strong>SetVariables</strong> node, rename it to <code>Input</code> and add two keys: <code>message</code> and <code>chat_id</code>. </li>
+<li>For the <code>message</code> key click the <strong>Value</strong> field, choose Telegram in the popup menu, find the <code>text</code> field and click an arrow icon to import the path as a value. </li>
+<li>
+<p>Repeat for the <code>chat_id</code> key but with the <code>chat.id</code> field instead.</p>
+<p><img alt="setting-values" loading="lazy" src="../../assets/setting-values.png" /></p>
+</li>
+<li>
+<p>Go back to the <strong>Send Text Message or Reply</strong> node and set <code>_.chat_id</code> variable for the <strong>Chat ID</strong> node.</p>
+</li>
+</ol>
+<p>We have just finished setting up the configuration for the Telegram bot and the related nodes. Now, we should configure the <strong>AI Agent</strong> node itself.</p>
+<p><a href="" id="agent-config"></a></p>
+<h2 id="configure-the-agent">Configure the agent</h2>
+<h3 id="set-up-the-memory">Set up the memory</h3>
+<ol>
+<li>Click the <strong>AI Agent</strong> node.</li>
+<li>Click the <strong>Session ID</strong> field. In the appeared menu go to <strong>Tools</strong> → <strong>Variables</strong> tab and choose <code>chat_id</code> variable. </li>
+<li>Click the <strong>User Prompt</strong> field. In the appeared menu go to <strong>Tools</strong> → <strong>Variables</strong> tab and choose <code>message</code> variable. Now our agent gets the context from the Telegram chat that we configured before.</li>
+<li>(Optional) Toggle <strong>Show advanced settings</strong> and look at the <strong>Context window length</strong> field. It defines how many previous messages the agent remembers. The default value is <code>25</code> and it is fine for this tutorial, let's keep it. You can increase this value in the future if necessary for your needs. But keep in mind that higher values increase a probability of hallucinations.</li>
+</ol>
+<p><img alt="setting-memory" loading="lazy" src="../../assets/setting-memory.png" /></p>
+<h3 id="prepare-a-system-prompt">Prepare a system prompt</h3>
+<p>Now let's provide our agent with a system prompt. This is the most important part of any AI assistant, as it defines it's general behavior. For this tutorial, we'll use our pre-prepared prompt, but we generally recommend checking out our <a href="../../user_guide/prompting_guide/">Prompting Guide</a>.</p>
+<ol>
+<li>
+<p>Familiarize yourself with the prompt below and copy it to clipboard:</p>
+<div class="language-md highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># Personality</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>You are <span class="gs">**Stanley**</span>, a pragmatic, friendly personal assistant. You keep &lt;Username&gt; organized and ask the essential questions.
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gh"># Environment</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>You run in <span class="gs">**Telegram**</span> chat. You orchestrate tools (Google Calendar, Todoist, Gmail, AI Web Search/Perplexity) but cannot see &lt;Username&gt;&#39;s screen. Assume local time is &lt;your timezone, e.g., <span class="gs">**UTC+03:00 (Asia/Nicosia)**</span>&gt;.
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="gh"># Tone</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Be concise and direct: 1-3 short sentences, bullets when useful. In replies, use <span class="gs">**conversational dates**</span> (e.g., &quot;today at 19:00&quot;, &quot;on Friday afternoon&quot;).
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="gh"># Goal</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Help &lt;Username&gt; with time management, task tracking, and project coordination using the tools available to you (calendar, task tracker, email, wes search).
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="gh"># Guardrails</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>In <span class="gs">**tool calls**</span> always pass timestamps in <span class="gs">**RFC3339 format + &lt;your UTC time difference, e.g., 03:00&gt;**</span>. In chat keep conversational times.
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="gh"># Tools</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">-</span><span class="w"> </span><span class="sb">`list_calendar_events`</span> — get calendar events for a time range.
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use to present upcoming events, check conflicts, or fetch details needed for scheduling.
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use before proposing a plan for a day/week or when &lt;Username&gt; asks &quot;When am I free/busy?&quot;
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">-</span><span class="w"> </span><span class="sb">`create_calendar_event`</span> — create a calendar event.
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use after confirming title, date/time, duration, and attendees. Include a Meet link if available.
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">-</span><span class="w"> </span><span class="sb">`list_tasks`</span> — fetch incomplete Todoist tasks.
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use to create a prioritized plan; sort by due date then importance; call out overdue items.
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="k">-</span><span class="w"> </span><span class="sb">`create_task`</span> — create a Todoist task.
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use to capture action items from chat or email; include due date/time and labels if provided.
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">-</span><span class="w"> </span><span class="sb">`list_email_inbox`</span> — get inbox email messages.
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use to triage unread mail and extract actionable items (meetings, invoices, requests).
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">-</span><span class="w"> </span><span class="sb">`create_email_draft`</span> — create email drafts.
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use to write replies with clear nest steps (e.g., propose 2-3 time slots, bullet answers).
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="k">-</span><span class="w"> </span><span class="sb">`web_search`</span> — perplexity AI search.
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>Use for quick research, examples, or facts to enrich replies or proposals (keep it brief: 2-3 bullets).
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="gh"># Workflow</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Stay current:**</span> Before acting, ensure you have the required context from <span class="sb">`list_calendar_events`</span>, <span class="sb">`retrieve_calendar_events`</span>, <span class="sb">`list_tasks`</span>, and (if relevant) <span class="sb">`list_email_inbox`</span>. If you already checked it within the last <span class="gs">**3 hours**</span>, you are up to date.
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Email triage:**</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>If an email mentions <span class="ge">*demo/meeting/call*</span> → check availability with <span class="sb">`retrieve_calendar_events`</span>, propose 2-3 slots, then <span class="sb">`create_calendar_event`</span> + <span class="sb">`create_email_draft`</span>.
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="k">-</span><span class="w"> </span>If an email mentions <span class="ge">*invoice/payment/deadline*</span> → <span class="sb">`create_task`</span> with due date and label; draft a brief acknowledgment if needed.
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Planing:**</span> When &lt;Username&gt; asks to plan a day/week, pull <span class="sb">`retrieve_calendar_events`</span> and <span class="sb">`list_tasks`</span>, propose a realistic schedule, then create events/tasks after a confirmation.
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Review:**</span> On request, produce a concise daily/weekly review (completed vs. pending, upcoming deadlines, meetings to confirm).
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="gh"># User context</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="k">-</span><span class="w"> </span>Name: <span class="gs">**&lt;Username&gt;**</span>; lives in <span class="gs">**&lt;City&gt; (&lt;UTC Timezone&gt;)**</span>.
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="k">-</span><span class="w"> </span>Role: &lt;Your role and duties&gt;
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="k">-</span><span class="w"> </span>Typical sleep: <span class="gs">**&lt;Your do-not-disturb time window&gt;**</span> (avoid scheduling here unless asked).
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="k">-</span><span class="w"> </span>Preferences: default meeting length <span class="gs">**30 min**</span>.
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="gh"># Current time</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="sb">`{{now}}`</span> (in UTC)
+</span></code></pre></div>
+</li>
+<li>
+<p>Paste it to the <strong>System message</strong> field and replace all the placeholders (<code>&lt;&gt;</code>) with you Telegram Username, timezone, city, and role. You can also edit and tweak the prompt as needed.</p>
+</li>
+<li>In the <strong>Model</strong> field choose an LLM to handle your requests. For this assistant we recommend choosing the <code>OpenAI: GPT-5 mini</code>, as it is relatively cheap and would be enough for our tasks.</li>
+</ol>
+<h3 id="connect-the-output">Connect the output</h3>
+<p>We need to connect the agent's response to the Telegram node <strong>Send Text Message or Reply</strong>.</p>
+<ol>
+<li>Click the <strong>AI Agent</strong> node and press <strong>Run</strong>. It returns a JSON structure of the agent's response.</li>
+<li>Go to the <strong>Send Text Message or Reply</strong> node and delete placeholder <code>1</code> from the <strong>Text</strong> field.</li>
+<li>Click the <strong>Text</strong> field and in the right menu choose <strong>Stanley</strong> then press an arrow icon for the <code>text</code> key in JSON structure. The key is now imported into the field, as shown in the image below.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p><img alt="setting-output" loading="lazy" src="../../assets/setting-output.png" /></p>
+<p>All the configurations are done, and you can test how your first assistant works.</p>
+<p><a href="" id="test-result"></a></p>
+<h2 id="test-the-result">Test the result</h2>
+<p>Let's have a look at a scenario when the assistant may be helpful. Below it is just an example, you can vary it as you'd like. You can also prepare some mock "urgent" Emails and tasks if you'd like to test that the assistant handles it right.</p>
+<ol>
+<li>Go to the Telegram dialogue with the bot. Ask him to check if there are anything urgent in your Email box.</li>
+<li>Ask him to draft the reply for an Email and appoint a meeting.</li>
+<li>Check the result in your Email, Todoist and Google Calendar.</li>
+</ol>
+<p>See an example in the images below.</p>
+<p><img alt="finish-1" loading="lazy" src="../../assets/finish-1.png" />
+<img alt="finish-2" loading="lazy" src="../../assets/finish-2.png" /></p>
+<p>Instead of manual handling this three tools now you can manage them all by a single Telegram bot.</p>
+<p><a href="" id="next"></a></p>
+<h2 id="whats-next">What's next</h2>
+<p>Think about your daily routines and how you could create an assistant to automate them. The links below might help.</p>
+<ul>
+<li>To learn more about the Latenode Nodes and and their features, see the <a href="../../concepts/node/">Node</a> concept as well as <a href="../../node_reference/ai_agent/">Node Reference</a>.</li>
+<li>Check out <a href="../../user_guide/create_scenario/">How to create a scenario</a> and <a href="../../user_guide/prompting_guide/">How to create an efficient prompt</a> guides.</li>
+</ul>
+<p>Feel free to visit our Community Forum and ask an advice.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../getting_started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting started">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Getting started
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../concepts/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
