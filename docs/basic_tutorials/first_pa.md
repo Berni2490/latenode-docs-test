@@ -1,12 +1,13 @@
 # Your first personal assistant
 
-In this step-by-step tutorial, you will create your first personal AI assistant with Latenode. By the end of the tutorial, you will have a simple yet complete AI assistant that can get natural-language tasks from the Telegram chat and helps you to handle your e-mails, tasks and meetings. Look at the final schema of the assistant at the image below.
+In this step-by-step tutorial, you'll create your first personal AI assistant using Latenode. By the end of the tutorial, you'll have a simple yet complete AI assistant that can get natural-language tasks from the Telegram chat and helps you to handle your e-mails, tasks and meetings. See the final schema of the assistant in the image below.
 
 ![assistant schema](../assets/final-schema.png){ align=right }
 
-The tutorial assumes that you already have an account and know some Latenode basics. If not, you should go through [Getting started](./getting_started.md) first.
+The tutorial assumes that:
 
-It also assumes that you are using an online-version of Latenode. If you are using a standalone version, some interfaces, links and details may vary.
+* You already have an account and know some Latenode basics. If not, you should go through [Getting started](./getting_started.md) first.
+* You are using an online-version of Latenode. If you are using a standalone version, some interfaces, links and details may vary.
 
 The major steps are:
 
@@ -18,7 +19,9 @@ The major steps are:
 [](){ #add-nodes }
 ## Add necessary nodes
 
-In this short first part, we'll just fill a new scenario with necessary nodes.
+In this short first part, we'll fill a new scenario with necessary nodes.
+
+### Create a scenario
 
 Let's create a new scenario and add the first node:
 
@@ -28,20 +31,22 @@ Let's create a new scenario and add the first node:
 
     ![AI Agent node](../assets/add-node.png){ align=right }
 
-    The node appears on the board and the node settings window pops up. Press the node name `UNTITLED` and rename to `Stanley`. For now leave other settings by default and close the window, we will back here later.
+    The node appears on the board and the node settings window pops up. Press the node name `UNTITLED` and rename to `Stanley`. For now, leave other settings at their default values and close the window. We'll back here later.
 
-This AI Agent node is the brain of our assistant, who will manage the other nodes. We want our assistant to be able to read mails and create mail drafts, check and create events in Google Calendar, list and create tasks in the task tracker.
+This AI Agent node is the brain of our assistant. It will manage the other nodes.
 
-Now let's add tool nodes to manage:
+We want our assistant to be able to read mails and create drafts, check and create events in Google Calendar, list and create tasks in a task tracker. Now, let's add nodes representing these tools.
+
+### Add tool nodes
 
 1. Press **Add node** in the bottom menu. Find and click **Gmail...** app. Use the search field to find it easy.
 1. Choose the **Create Draft** node. 
 1. Repeat the process for the **Find Email** node.
 1. Add the following nodes in a similar way:
 
-    * **List Events** and **Create Event** nodes from **Google Calendar...** app.
-    * **List uncompleted tasks** and **Create Task** nodes from **Todoist...** app.
-    * **Create Chat Completion** from **AI: Perplexity...** app. The assistant will use it to search for an information in the internet.
+    * **List Events** and **Create Event** nodes from the **Google Calendar...** app.
+    * **List uncompleted tasks** and **Create Task** nodes from the **Todoist...** app.
+    * **Create Chat Completion** from the **AI: Perplexity...** app. The assistant will use it to search for an information in the internet.
 
 1. Connect the **AI Agent** node with every tool node. You should get a layout like in the image below.
 
@@ -52,13 +57,16 @@ You can see that our tool nodes are marked with yellow triangles. It means that 
 [](){ #configure-tools }
 ## Configure the tools
 
-Let's give OAuth tokens to our nodes to connect them with real systems — Todoist, Gmail and Calendar:
+### Authorize Nodes
+Let's give authorization tokens to our nodes to connect them with real systems — Todoist, Gmail, and Calendar:
 
 1. Click a Todoist node and press **Sign in**. If you are not authorized in Todoist yet, system prompts you to sign in.
 1. Sing in if needed. You'll see that the **Connection** field contains an auth token.
 1. Press **Save** and close the window.
 1. Click another Todoist node and make sure that it has the same auth token appointed. You can manage your authorizations and rename them in **Authorizations** section in left menu.
-1. Repeat above steps for Gmail and Calendar nodes. It may require giving necessary permissions for Latenode. It is safe.
+1. Repeat above steps for Gmail and Calendar nodes. You may need to grant the necessary permissions to Latenode. This is safe.
+
+### Fill in fields
 
 Now we need to give our nodes descriptive names, clear descriptions and specify `fromAIAgent` operator for some fields. It provides the AI Agent with reliable information about these nodes.
 
@@ -127,7 +135,9 @@ The tools are configured and now we should set up a communication environment to
 ## Set up the environment
 
 !!! note
-    In this tutorial we will use a Telegram bot. But generally, instead of it you can use Mailhook or any similar node.
+    In this tutorial we will use a Telegram bot. But generally, instead of it you can use Mailhook or any similar tool.
+
+### Create a bot
 
 Let's configure a Telegram bot to communicate with our assistant:
 
@@ -139,21 +149,25 @@ Let's configure a Telegram bot to communicate with our assistant:
 1. Copy the API token of the bot to the clipboard.
 1. Go to Latenode, choose **Authorizations** from the left panel and create a new authorization for **Telegram bot**. Paste the API token here and click **Authorize**.
 
+### Add Telegram nodes
+
 Now we need to add Telegram nodes to our scenario:
 
 1. Delete the default **Trigger on Run once** node from the scenario.
 1. Press **Add node**, find **Telegram** app and choose **New Updates (Instant)** node. Connect it to the **AI Agent** node in place of deleted trigger.
 1. Click the added node and choose the authorization we've added earlier.
 1. In the **Allowed updates** field choose `message`, so the node will trigger on every message.
-1. Press **Add node**, find **Telegram** app and choose the **Send Text Message or Reply** node. Connect the **AI Agent** node to it, like in picture below. It will receive replies from our agent.
+1. Press **Add node**, find **Telegram** app and choose the **Send Text Message or Reply** node. Connect the **AI Agent** node to it, like in image below. It will receive replies from our agent.
 1. Add authorization to this node as above and fill the **Chat ID** and **Text** fields with `1` as placeholders.
 
 ![telegram-added](../assets/telegram-added.png){ loading=lazy }
 
-Set up the handling of messages that the Telegram bot sends:
+### Add a variable handler
+
+Set up how to handle messages sent by the Telegram bot:
 
 1. Click the **New Updates (Instant)** node and press the **Run** button. It triggers a mock message. The JSON-structure of the message appears in a popup window. You may investigate it shortly. We are interested in `chat.id` and `text` fields.
-1. Click **Add node** and find the **SetVariables** node. Place and connect it between the **New Updates (Instant)** and the **AI Agent** node, like in picture below. The node will store necessary JSON variables of the message.
+1. Click **Add node** and find the **SetVariables** node. Place and connect it between the **New Updates (Instant)** and the **AI Agent** node, like in image below. The node will store necessary JSON variables of the message.
 1. Click the **SetVariables** node, rename it to `Input` and add two keys: `message` and `chat_id`. 
 1. For the `message` key click the **Value** field, choose Telegram in the popup menu, find the `text` field and click an arrow icon to import the path as a value. 
 1. Repeat for the `chat_id` key but with the `chat.id` field instead.
@@ -162,7 +176,7 @@ Set up the handling of messages that the Telegram bot sends:
 
 1. Go back to the **Send Text Message or Reply** node and set `_.chat_id` variable for the **Chat ID** node.
 
-We just have finished setting up the configuration of the Telegram bot and the related nodes. Now we should configure the **AI Agent** node itself.
+We have just finished setting up the configuration for the Telegram bot and the related nodes. Now, we should configure the **AI Agent** node itself.
 
 [](){ #agent-config }
 ## Configure the agent
@@ -178,9 +192,9 @@ We just have finished setting up the configuration of the Telegram bot and the r
 
 ### Prepare a system prompt
 
-Now let's provide our agent with a system prompt. This is the most important part of any AI assistant, as it defines it's general behavior. For this tutorial we will use a predefined prompt, but generally we recommend checking out our [Prompting Guide](../user_guide/prompting_guide.md).
+Now let's provide our agent with a system prompt. This is the most important part of any AI assistant, as it defines it's general behavior. For this tutorial, we'll use our pre-prepared prompt, but we generally recommend checking out our [Prompting Guide](../user_guide/prompting_guide.md).
 
-1. Familiarize yourself with the prompt below and copy it to the clipboard:
+1. Familiarize yourself with the prompt below and copy it to clipboard:
 
     ```md
     # Personality
@@ -233,7 +247,7 @@ Now let's provide our agent with a system prompt. This is the most important par
     `{{now}}` (in UTC)
     ```
 
-1. Paste it to the **System message** field and replace all the placeholders (`<>`) with you Telegram Username, timezone, city, etc., accordingly. You can also edit and tweak the prompt as you like.
+1. Paste it to the **System message** field and replace all the placeholders (`<>`) with you Telegram Username, timezone, city, and role. You can also edit and tweak the prompt as needed.
 1. In the **Model** field choose an LLM to handle your requests. For this assistant we recommend choosing the `OpenAI: GPT-5 mini`, as it is relatively cheap and would be enough for our tasks.
 
 ### Connect the output
@@ -242,23 +256,23 @@ We need to connect the agent's response to the Telegram node **Send Text Message
 
 1. Click the **AI Agent** node and press **Run**. It returns a JSON structure of the agent's response.
 1. Go to the **Send Text Message or Reply** node and delete placeholder `1` from the **Text** field.
-1. Click the **Text** field and in the right menu choose **Stanley** then press an arrow icon for the `text` key in JSON structure. The key is now imported to the field, as in image below.
+1. Click the **Text** field and in the right menu choose **Stanley** then press an arrow icon for the `text` key in JSON structure. The key is now imported into the field, as shown in the image below.
 1. Click **Save**.
 
 ![setting-output](../assets/setting-output.png){ loading=lazy }
 
-All the configurations are done and you can check how your first assistant works.
+All the configurations are done, and you can test how your first assistant works.
 
-[](){ #check-result }
-## Check the result
+[](){ #test-result }
+## Test the result
 
-Let's have a look at a scenario when the assistant may be helpful. Below it is just an example, you can vary it as you'd like. You can also prepare some mock urgent Emails and tasks if you'd like to test that the assistant handles it right.
+Let's have a look at a scenario when the assistant may be helpful. Below it is just an example, you can vary it as you'd like. You can also prepare some mock "urgent" Emails and tasks if you'd like to test that the assistant handles it right.
 
 1. Go to the Telegram dialogue with the bot. Ask him to check if there are anything urgent in your Email box.
 1. Ask him to draft the reply for an Email and appoint a meeting.
 1. Check the result in your Email, Todoist and Google Calendar.
 
-See an example in the pictures below.
+See an example in the images below.
 
 ![finish-1](../assets/finish-1.png){ loading=lazy }
 ![finish-2](../assets/finish-2.png){ loading=lazy }
@@ -268,9 +282,9 @@ Instead of manual handling this three tools now you can manage them all by a sin
 [](){ #next }
 ## What's next
 
-Remember your own daily routines and think how to make an assistant to automate them. Links below might help you.
+Think about your daily routines and how you could create an assistant to automate them. The links below might help.
 
-* To learn more about the Latenode Nodes and and their feature, see the [Node](../concepts/node.md) concept as well as [Node Reference](../node_reference/ai_agent.md).
+* To learn more about the Latenode Nodes and and their features, see the [Node](../concepts/node.md) concept as well as [Node Reference](../node_reference/ai_agent.md).
 * Check out [How to create a scenario](../user_guide/create_scenario.md) and [How to create an efficient prompt](../user_guide/prompting_guide.md) guides.
 
 Feel free to visit our Community Forum and ask an advice.

@@ -1,8 +1,8 @@
 # Welcome to the Latenode Documentation
 
-Welcome to the official documentation of Latenode, an open low-code tool that helps you to create automations and AI Agents with ease.
+Welcome to the official documentation of Latenode, an open low-code tool that helps you to create automations and AI agents with ease.
 
-If you are new to this documentation, we recommend that you read the [Organization of the documentation][organization] section to get an overview of what this documentation offers.
+If you're new to this documentation, we recommend reading the [Organization of the documentation][organization] section to get an overview of what this documentation offers.
 
 The table of contents in the top menu should let you easily access the documentation for your topic of interest. You can also use the search function in the top-right corner.
 
@@ -21,6 +21,6 @@ This documentation is organized into several sections:
 * **Concepts** contains theoretical explanations of the entities handled by Latenode, such as automations, scenarios, nodes, and more.
 * The **User Guide** contains instructions on specific tasks that you may face during the use. You can read it in any order as you need.
 * The **Admin Guide** contains sections intended for administrators of standalone version of Latenode.
-* The **Node Reference** documents the full list of available nodes of Latenode and their functional descriptions.
+* The **Node Reference** contains the full list of available nodes and their functional descriptions.
 * **Community** is dedicated to the life of Latenode's community and contains a list of recommended third-party tutorials and materials outside of this documentation.
 * **About** contains information about the Latenode team, contacts, careers and so on.
