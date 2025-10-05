@@ -47,7 +47,7 @@ We want our assistant to be able to read mails and create drafts, check and crea
 
     * **List Events** and **Create Event** nodes from the **Google Calendar...** app.
     * **List uncompleted tasks** and **Create Task** nodes from the **Todoist...** app.
-    * **Create Chat Completion** from the **AI: Perplexity...** app. The assistant will use it to search for an information in the internet.
+    * **Create Chat Completion** from the **AI: Perplexity...** app. The assistant will use it to search for information on the internet.
 
 1. Connect the **AI Agent** node with every tool node. You should get a layout like in the image below.
 
